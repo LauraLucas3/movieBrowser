@@ -10,6 +10,8 @@ import profilIcone from "./img/profilIcone.png";
 import selectedHome from "./img/selectedHome.png";
 import selectedDiscoverIcone from "./img/selectedDiscoverIcone.png";
 import selectedProfilIcone from "./img/selectedProfilIcone.png";
+import playButton from "./img/playButton.png";
+import Detail from "./components/detail";
 
 export default function App() {
   const [isHome, setIsHome] = React.useState(true);
@@ -37,8 +39,11 @@ export default function App() {
           <Route path="/profil">
             <Profil />
           </Route>
+          <Route path={`/detail/:movieId`}>
+            <Detail />
+          </Route>
           <Route path="/">
-            <Home />
+            <Home playImage={playButton} />
           </Route>
         </Switch>
       </div>
