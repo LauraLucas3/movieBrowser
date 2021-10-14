@@ -1,35 +1,41 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Home from "./components/home";
+import Discover from "./components/discover";
+import Profil from "./components/profil";
+import "./App.css";
+import homeIcone from "./img/Home.png";
+import discoverIcone from "./img/discoverIcone.png";
+import profilIcone from "./img/profilIcone.png";
+import selectedHome from "./img/selectedHome.png";
+import selectedDiscoverIcone from "./img/selectedDiscoverIcone.png";
+import selectedProfilIcone from "./img/selectedProfilIcone.png";
 
 export default function App() {
+  const [isHome, setIsHome] = React.useState(true);
+  const [isDisc, setIsDisc] = React.useState(false);
+  const [isProfil, setIsProfil] = React.useState(false);
   return (
     <Router>
       <div>
-        <ul>
+        <ul className="menuLinks">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" onClick={() => {setIsHome(true); setIsDisc(false); setIsProfil(false)}}><img className="homeLogo" src={isHome === true ? selectedHome : homeIcone} alt="home icone" /></Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/discover" onClick={() => {setIsHome(false); setIsDisc(true); setIsProfil(false)}}><img className="discoverLogo" src={isDisc === true ? selectedDiscoverIcone : discoverIcone} alt="discover icone" /></Link>
           </li>
           <li>
-            <Link to="/topics">Topics</Link>
+            <Link to="/profil" onClick={() => {setIsHome(false); setIsDisc(false); setIsProfil(true)}}><img className="profilLogo" src={isProfil === true ? selectedProfilIcone : profilIcone} alt="profil icone" /></Link>
           </li>
         </ul>
 
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/discover">
+            <Discover />
           </Route>
-          <Route path="/topics">
-            <Topics />
+          <Route path="/profil">
+            <Profil />
           </Route>
           <Route path="/">
             <Home />
@@ -38,51 +44,4 @@ export default function App() {
       </div>
     </Router>
   );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Topics() {
-  let match = useRouteMatch();
-
-  return (
-    <div>
-      <h2>Topics</h2>
-
-      <ul>
-        <li>
-          <Link to={`${match.url}/components`}>Components</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/props-v-state`}>
-            Props v. State
-          </Link>
-        </li>
-      </ul>
-
-      {/* The Topics page has its own <Switch> with more routes
-          that build on the /topics URL path. You can think of the
-          2nd <Route> here as an "index" page for all topics, or
-          the page that is shown when no topic is selected */}
-      <Switch>
-        <Route path={`${match.path}/:topicId`}>
-          <Topic />
-        </Route>
-        <Route path={match.path}>
-          <h3>Please select a topic.</h3>
-        </Route>
-      </Switch>
-    </div>
-  );
-}
-
-function Topic() {
-  let { topicId } = useParams();
-  return <h3>Requested topic ID: {topicId}</h3>;
 }

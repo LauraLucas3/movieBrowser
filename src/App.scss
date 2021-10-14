@@ -1,0 +1,136 @@
+//Font import
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+//Colors
+
+$clearcolor: #E2E2E2;
+$dark-color: #15141F;
+$peach-gradient: linear-gradient(244.07deg, #FF8F71 47.24%, #EF2D1A 120.34%);
+
+//font
+
+$font:'Lato', sans-serif;
+
+//App
+
+body {
+    background-color: $dark-color;
+    color: $clearcolor;
+    font-family: $font;
+}
+
+Link {
+    font-family: $font;
+    text-decoration: none;
+    color: $clearcolor;
+}
+
+.menuLinks {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-decoration: none;
+    justify-content: space-around;
+    align-content: center;
+    list-style: none;
+    padding-left: 0;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    margin-bottom: 0px;
+}
+
+.homeLogo {
+    width: 24px;
+    height: 26px;
+}
+
+.discoverLogo {
+    width: 26px;
+    height: 26px;
+}
+
+.profilLogo {
+    width: 22px;
+    height: 26px;
+}
+
+//Discover
+
+.discScroll {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    height: 60px;
+    max-width: 400px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.discLink {
+    font-family: $font;
+    text-decoration: none;
+    color: $clearcolor;
+    font-weight: 400;
+    font-size: 16px;
+    margin-right: 20px;
+    &:focus {
+        background: $peach-gradient;
+        background-clip: text;
+        color: transparent;   
+    }
+}
+
+.discLinkContainer .discLink:focus {
+    display: table;
+    padding-bottom: 8px;
+    &:after {
+        border-bottom-style: solid;
+        border-bottom-width: 5px;
+        border-bottom-color: #FF8F71;
+        padding-bottom: 8px;
+        content: '';
+        display: block;
+        width: 35%;
+    }
+}
+
+//titre
+
+h1 {
+    color: white;
+    font-family: $font;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    margin-left: 29px;
+    margin-top: 33px;
+    margin-bottom: 25px;
+    span {
+        background: $peach-gradient;
+        background-clip: text;
+        color: transparent; 
+    }
+}
+
+//home
+
+.trendImageContainer {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 24px;
+    height: auto;
+    .trendImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 30px;
+    }
+}
