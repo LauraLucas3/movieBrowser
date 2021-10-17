@@ -1,17 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 body {
-  background-color: #15141F;
-  color: #E2E2E2;
+  background-color: #15141f;
+  color: #e2e2e2;
   font-family: "Lato", sans-serif;
+  padding-bottom: 100px;
 }
 
 Link {
   font-family: "Lato", sans-serif;
   text-decoration: none;
-  color: #E2E2E2;
+  color: #e2e2e2;
 }
 
 .menuLinks {
+  background-color: #15141f;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,9 +32,10 @@ Link {
       align-content: center;
   list-style: none;
   padding-left: 0;
-  padding-top: 22px;
-  padding-bottom: 22px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   margin-bottom: 0px;
+  z-index: 5;
 }
 
 .homeLogo {
@@ -71,14 +74,14 @@ Link {
 .discLink {
   font-family: "Lato", sans-serif;
   text-decoration: none;
-  color: #E2E2E2;
+  color: #e2e2e2;
   font-weight: 400;
   font-size: 16px;
   margin-right: 20px;
 }
 
 .discLink:focus {
-  background: linear-gradient(244.07deg, #FF8F71 47.24%, #EF2D1A 120.34%);
+  background: linear-gradient(244.07deg, #ff8f71 47.24%, #ef2d1a 120.34%);
   background-clip: text;
   color: transparent;
 }
@@ -90,10 +93,10 @@ Link {
 
 .discLinkContainer .discLink:focus:after {
   border-bottom-style: solid;
-  border-bottom-width: 5px;
-  border-bottom-color: #FF8F71;
+  border-bottom-width: 3px;
+  border-bottom-color: #ff8f71;
   padding-bottom: 8px;
-  content: '';
+  content: "";
   display: block;
   width: 35%;
 }
@@ -110,7 +113,7 @@ h1 {
 }
 
 h1 span {
-  background: linear-gradient(244.07deg, #FF8F71 47.24%, #EF2D1A 120.34%);
+  background: linear-gradient(244.07deg, #ff8f71 47.24%, #ef2d1a 120.34%);
   background-clip: text;
   color: transparent;
 }
@@ -184,7 +187,7 @@ h1 span {
   margin: 0;
   padding-bottom: 0;
   margin-bottom: 0;
-  color: #BCBCBC;
+  color: #bcbcbc;
 }
 
 .screenTrendTitle {
@@ -198,5 +201,485 @@ h1 span {
   padding-top: 0;
   margin-top: 4px;
   color: white;
+}
+
+.detailFrontImageContainer {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 100%;
+  margin: 0 0;
+  height: 287px;
+  margin-bottom: 24px;
+}
+
+.detailFrontImageContainer .detailFrontImage {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.detailFrontImageContainer .detailFrontGradient {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), color-stop(28.65%, rgba(0, 0, 0, 0)), color-stop(64.06%, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8)));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 28.65%, rgba(0, 0, 0, 0) 64.06%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.detailFrontImageContainer .detailPlayButton {
+  height: 25.5px;
+  width: 22.5px;
+  margin: auto;
+  filter: drop-shadow(5px 5px 10px rgba(254, 86, 70, 0.15));
+  -webkit-filter: drop-shadow(5px 5px 10px rgba(254, 86, 70, 0.15));
+}
+
+.detailFrontImageContainer .detailPlayButtonContainer {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 64px;
+  height: 64px;
+  top: 50%;
+  left: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
+  background: linear-gradient(141.08deg, rgba(255, 255, 255, 0.25) 13.56%, rgba(255, 255, 255, 0) 85.76%);
+  -webkit-backdrop-filter: blur(4.81px);
+          backdrop-filter: blur(4.81px);
+  border-radius: 32px;
+  border-width: 1px;
+  border-style: outset;
+  border-color: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.detailFrontImageContainer .pathImageContainer {
+  position: absolute;
+  top: 52px;
+  left: 37px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  z-index: 2;
+}
+
+.detailFrontImageContainer .pathImage {
+  height: 28px;
+  width: 16px;
+  cursor: pointer;
+}
+
+.detailInfosContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 24px;
+}
+
+.detailInfosContainer .detailTitleContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.detailInfosContainer .detailTitleContainer .detailTitle {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.02em;
+  color: white;
+  margin: 0;
+  margin-right: 8px;
+}
+
+.detailInfosContainer .detailTitleContainer .detailRes {
+  padding: 4px 8px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #E0E0E0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4.81px);
+  -webkit-backdrop-filter: blur(4.81px);
+  border-style: outset;
+  border-color: rgba(255, 255, 255, 0.25);
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+.detailInfosContainer .detailAddInfosContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  margin-right: 24px;
+  padding-bottom: 18px;
+  border-bottom: 0.2px solid #515151;
+}
+
+.detailInfosContainer .detailAddInfosContainer .detailDurationImage {
+  margin-right: 6px;
+  width: 12px;
+  height: 12px;
+}
+
+.detailInfosContainer .detailAddInfosContainer .detailDuration {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: #bcbcbc;
+  margin-right: 18px;
+}
+
+.detailInfosContainer .detailAddInfosContainer .detailRateImage {
+  height: 12px;
+  width: 12px;
+  margin-right: 6px;
+}
+
+.detailInfosContainer .detailAddInfosContainer .detailRate {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: #bcbcbc;
+}
+
+.detailInfosTwoContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 16px;
+  margin-left: 24px;
+  margin-right: 24px;
+  padding-bottom: 16px;
+  border-bottom: 0.2px solid #515151;
+}
+
+.detailInfosTwoContainer p {
+  margin: 0;
+}
+
+.detailInfosTwoContainer .detailReleaseContainer {
+  margin: 0;
+  margin-right: 47px;
+}
+
+.detailInfosTwoContainer .detailReleaseContainer .detailReleaseTitle {
+  font-size: 16px;
+  font-weight: 500px;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.detailInfosTwoContainer .detailReleaseContainer .detailReleaseDate {
+  font-size: 12px;
+  font-weight: 400;
+  color: #bcbcbc;
+}
+
+.detailInfosTwoContainer .detailGenresContainer .detailGenresTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.detailInfosTwoContainer .detailGenresContainer .detailGenresGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.detailInfosTwoContainer .detailGenresContainer .detailGenresGroup .detailGenre {
+  font-size: 12px;
+  font-weight: 400;
+  color: #bcbcbc;
+  padding: 4px 12px;
+  background-color: rgba(250, 240, 202, 0.05);
+  -webkit-backdrop-filter: blur(4.81px);
+          backdrop-filter: blur(4.81px);
+  border-radius: 15px;
+  margin-right: 12px;
+  border-style: outset;
+  border-color: rgba(255, 255, 255, 0.25);
+  border-width: 1px;
+  text-decoration: none;
+}
+
+.detailSynopsisContainer {
+  margin-top: 16px;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 20px;
+}
+
+.detailSynopsisContainer p {
+  margin: 0;
+}
+
+.detailSynopsisContainer .detailSynopsisTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.detailSynopsisContainer .detailSynopsis {
+  font-size: 14px;
+  font-weight: 400;
+  color: #bcbcbc;
+}
+
+.detailRelatedMoviesContainer {
+  height: 106px;
+  margin-bottom: 60px;
+}
+
+.detailRelatedMoviesContainer p {
+  margin: 0;
+}
+
+.detailRelatedMoviesContainer .detailRelatedMoviesTitle {
+  margin-left: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.detailRelatedMoviesContainer .relatedFilmSlide {
+  position: relative;
+}
+
+.detailRelatedMoviesContainer .relatedFilmSlide .relatedLink {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
+  text-decoration: none;
+}
+
+.detailRelatedMoviesContainer .relatedFilmSlide .relatedLink p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.detailRelatedMoviesContainer .relatedFilmSlide .relatedLink p span {
+  font-weight: 500;
+  color: #bcbcbc;
+}
+
+.detailRelatedMoviesContainer .relatedFilmSlide .relatedFilm {
+  height: 106px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.relatedGradient {
+  position: absolute;
+  top: 0;
+  height: 106px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.5)));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  border-radius: 20px;
+  z-index: 3;
+}
+
+.trendingTitle {
+  margin-top: 31px;
+  margin-left: 24px;
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+}
+
+.slide {
+  width: 258px;
+  height: 359px;
+  margin: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.slide .otherTrendsImage {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 30px;
+}
+
+.slide .otherTrendsImage .otherTrendsLink {
+  position: relative;
+}
+
+.trendsTitleContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-self: center;
+  position: absolute;
+  width: 90%;
+  margin-left: 5%;
+  height: 82px;
+  bottom: 21px;
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4.81px);
+  -webkit-backdrop-filter: blur(4.81px);
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: outset;
+  border-color: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.trendsTitle {
+  margin: 0;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  color: white;
+}
+
+.trendsIMDb {
+  font-size: 8px;
+  font-weight: 400;
+  padding-top: 6px;
+  padding-left: 12px;
+  padding-bottom: 3px;
+}
+
+.otherTrendsRate {
+  position: absolute;
+  text-align: left;
+  width: 77px;
+  height: 49px;
+  top: 17px;
+  right: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4.81px);
+  -webkit-backdrop-filter: blur(4.81px);
+  border-radius: 15px;
+  border-width: 1px;
+  border-style: outset;
+  border-color: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  z-index: 2;
+  color: white;
+}
+
+.otherTrendsRate p {
+  margin: 0;
+}
+
+.otherTrendsRate .otherTrendsRateStarContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.otherTrendsRate .otherTrendsRateStarContainer .trendsStarRate {
+  width: 16px;
+  height: 16px;
+  margin-right: 9px;
+  padding-left: 12px;
+}
+
+.otherTrendsRate .otherTrendsRateStarContainer .trendsRateNumber {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.otherTrendsGradient {
+  position: absolute;
+  top: 0;
+  height: 359px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), color-stop(42.1%, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.7)));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 42.1%, rgba(0, 0, 0, 0.7) 100%);
+  border-radius: 30px;
+  z-index: 1;
 }
 /*# sourceMappingURL=App.css.map */

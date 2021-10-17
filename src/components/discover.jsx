@@ -1,12 +1,17 @@
 import React from "react";
-import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import Genre from "./genre";
 import axios from "axios";
 import Titre from "./title";
 
-export default function Discover() {
+export default function Discover(props) {
   const [posts, setPost] = React.useState(null);
-  let match = useRouteMatch();
+  const [selectedGenre, setSelectGenre] = React.useState(null);
+  props.onChange(false, true, false);
+
+  function handleChange(newValue) {
+    setSelectGenre(newValue);
+  }
 
   React.useEffect(() => {
     axios
@@ -30,30 +35,30 @@ export default function Discover() {
 
       <ul className="discScroll">
         {posts.map((element, i) => {
-          console.log(element);
+          if (selectedGenre !== null) {
+            if (selectedGenre === element.name) {
+              document.getElementById(element.name).focus();
+            }
+          }
           return (
-              <li className="discLinkContainer">
-                <Link to={`${match.url}/` + element.name} className="discLink">{element.name}</Link>
-              </li>
-          )
+            <li className="discLinkContainer">
+              <Link
+                to={`/discover/` + element.name}
+                className="discLink"
+                id={element.name}
+              >
+                {element.name}
+              </Link>
+            </li>
+          );
         })}
-        {/*<li>
-          <Link to={`${match.url}/action`}>Action</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/aventure`}>Aventure</Link>
-        </li>*/}
       </ul>
 
-      {/* The Topics page has its own <Switch> with more routes
-            that build on the /topics URL path. You can think of the
-            2nd <Route> here as an "index" page for all topics, or
-            the page that is shown when no topic is selected */}
       <Switch>
-        <Route path={`${match.path}/:genreId`}>
-          <Genre />
+        <Route path={`/discover/:genreId`}>
+          <Genre onLoad={handleChange} />
         </Route>
-        <Route path={match.path}>
+        <Route path={`/discover`}>
           <h3>Please select a genre.</h3>
         </Route>
       </Switch>
