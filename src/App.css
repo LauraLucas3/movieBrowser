@@ -86,12 +86,15 @@ Link {
   color: transparent;
 }
 
-.discLinkContainer .discLink:focus {
+.genreFocus {
   display: table;
   padding-bottom: 8px;
+  background: linear-gradient(244.07deg, #ff8f71 47.24%, #ef2d1a 120.34%);
+  background-clip: text;
+  color: transparent;
 }
 
-.discLinkContainer .discLink:focus:after {
+.genreFocus:after {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #ff8f71;
@@ -472,7 +475,7 @@ h1 span {
 
 .detailRelatedMoviesContainer {
   height: 106px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .detailRelatedMoviesContainer p {
@@ -515,8 +518,20 @@ h1 span {
   color: #bcbcbc;
 }
 
-.detailRelatedMoviesContainer .relatedFilmSlide .relatedFilm {
+.detailRelatedMoviesContainer .relatedFilmSlide .relatedLink .relatedFilmImageContainer {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: 106px;
+  width: 100%;
+}
+
+.detailRelatedMoviesContainer .relatedFilmSlide .relatedFilm {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 20px;
   margin-bottom: 12px;
 }
@@ -681,5 +696,134 @@ h1 span {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 42.1%, rgba(0, 0, 0, 0.7) 100%);
   border-radius: 30px;
   z-index: 1;
+}
+
+.searchAllContainer {
+  margin: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.searchAllContainer .searchStyleContainer {
+  min-height: 800px;
+  width: 95%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.searchResultsContainer {
+  width: 170px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.searchResultsContainer .searchFilmImageContainer {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 170px;
+  height: auto;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.searchResultsContainer .searchFilm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 170px;
+  height: auto;
+  border-radius: 20px;
+}
+
+.searchResultsContainer .searchLink {
+  text-decoration: none;
+}
+
+.searchResultsContainer .searchFilmTitle {
+  margin: 0;
+  margin-top: 12px;
+  color: white;
+  text-decoration: none;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.searchResultsContainer .searchFilmTitle span {
+  text-decoration: none;
+  font-weight: 500;
+  color: #bcbcbc;
+}
+
+.searchGradient {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 0;
+  height: 100%;
+  width: 170px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.3)));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+  border-radius: 20px;
+  z-index: 3;
+}
+
+.searchBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 24px;
+  margin-bottom: 23px;
+  background-color: #211F30;
+  padding: 12px;
+  border-radius: 20px;
+}
+
+.searchBar img {
+  margin-right: 16px;
+}
+
+.searchBar input {
+  width: 100%;
+  background-color: #211F30;
+  border: none;
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  color: rgba(187, 187, 187, 0.5);
+}
+
+.searchBar input:focus {
+  outline: none;
 }
 /*# sourceMappingURL=App.css.map */

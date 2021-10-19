@@ -10,5 +10,10 @@ import React from "react";
 
 export default function Profil(props) {
   props.onChange(false, false, true);
-  return <h2>Profil</h2>;
+
+  return(
+    <div>
+    </div>
+  );
+  
 }

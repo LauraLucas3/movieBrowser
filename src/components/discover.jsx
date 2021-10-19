@@ -1,16 +1,18 @@
 import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, NavLink, Link } from "react-router-dom";
 import Genre from "./genre";
 import axios from "axios";
 import Titre from "./title";
+import SearchInput from "./searchInput";
+import Search from "./search";
 
 export default function Discover(props) {
   const [posts, setPost] = React.useState(null);
-  const [selectedGenre, setSelectGenre] = React.useState(null);
+  const [selectedGenre, setSelectedGenre] = React.useState(null);
   props.onChange(false, true, false);
 
   function handleChange(newValue) {
-    setSelectGenre(newValue);
+    setSelectedGenre(newValue);
   }
 
   React.useEffect(() => {
@@ -24,39 +26,37 @@ export default function Discover(props) {
       });
   }, []);
 
-  console.log(posts);
-
   if (!posts) return null;
 
   return (
     <div>
       <Titre />
-      <h2>Discover</h2>
+      <Link to="/discover/search">
+      <SearchInput search={props.search} onSearchValueChange={props.onSearchValueChange} discSearch={props.discSearch} /></Link>
 
       <ul className="discScroll">
         {posts.map((element, i) => {
-          if (selectedGenre !== null) {
-            if (selectedGenre === element.name) {
-              document.getElementById(element.name).focus();
-            }
-          }
           return (
             <li className="discLinkContainer">
-              <Link
-                to={`/discover/` + element.name}
+              <NavLink
+                to={`/discover/genre/` + element.id}
                 className="discLink"
                 id={element.name}
+                activeClassName="genreFocus"
               >
                 {element.name}
-              </Link>
+              </NavLink>
             </li>
           );
         })}
       </ul>
 
       <Switch>
-        <Route path={`/discover/:genreId`}>
-          <Genre onLoad={handleChange} />
+        <Route path={`/discover/genre/:genreId`}>
+          <Genre handleChange={handleChange} key={selectedGenre} />
+        </Route>
+        <Route path="/discover/search">
+          <Search search={props.search} onSearchValueChange={props.onSearchValueChange} encodedSearch={props.encodedSearch} key={props.search} />
         </Route>
         <Route path={`/discover`}>
           <h3>Please select a genre.</h3>

@@ -80,8 +80,6 @@ export default function Detail(props) {
 
   if (!details || !video || !similars) return null;
 
-  console.log(details);
-  console.log(similars);
   console.log(video);
 
   //formattage de la date
@@ -160,6 +158,7 @@ export default function Detail(props) {
             return (
               <div className="relatedFilmSlide">
                 <Link className="relatedLink" to={`/detail/` + element.id}>
+                  <div className="relatedFilmImageContainer">
                   <div className="relatedGradient"></div>
                   <img
                     className="relatedFilm"
@@ -169,6 +168,7 @@ export default function Detail(props) {
                     }
                     alt={element.title}
                   />
+                  </div>
                   <p className="relatedFilmTitle">
                     {element.title}
                     <span> ({similarsDateYear(element.release_date)})</span>
