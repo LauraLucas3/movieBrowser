@@ -59,7 +59,6 @@ export default function Discover(props) {
           <Search search={props.search} onSearchValueChange={props.onSearchValueChange} encodedSearch={props.encodedSearch} key={props.search} />
         </Route>
         <Route path={`/discover`}>
-          <h3>Please select a genre.</h3>
         </Route>
       </Switch>
     </div>

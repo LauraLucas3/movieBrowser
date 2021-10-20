@@ -139,7 +139,7 @@ export default function Detail(props) {
           <div className="detailGenresGroup">
             {details.genres.map((element, i) => {
               return (
-                <Link to={`/discover/` + element.name} className="detailGenre">
+                <Link to={`/discover/genre/` + element.name} className="detailGenre">
                   {element.name}
                 </Link>
               );
@@ -181,7 +181,7 @@ export default function Detail(props) {
       </div>
 
       <Switch>
-        <Route path={`/discover/:genreId`}>
+        <Route path={`/discover/genre/:genreId`}>
           <Genre />
         </Route>
       </Switch>

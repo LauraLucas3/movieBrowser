@@ -71,7 +71,7 @@ Link {
   flex-direction: row;
   list-style: none;
   height: 60px;
-  max-width: 400px;
+  max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
@@ -397,6 +397,7 @@ h1 {
         .detailGenresGroup {
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
             .detailGenre {
                 font: {
                     size: 12px;
@@ -404,6 +405,7 @@ h1 {
                 }
                 color: $light-gray-1;
                 padding: 4px 12px;
+                margin: 3px 0;
                 background-color: rgba(250, 240, 202, 0.05);
                 backdrop-filter: blur(4.81px);
                 border-radius: 15px;
@@ -468,6 +470,7 @@ h1 {
         flex-direction: column;
         color: white;
         text-decoration: none;
+        padding: 0 10px;
         p {
           margin: 0;
           font: {
@@ -662,7 +665,7 @@ h1 {
   height: auto;
   display: flex;
   margin-top: 20px;
-  padding: 0;
+  padding: 0 10px;
   .searchFilmImageContainer{
     position: relative;
     margin: 0;
