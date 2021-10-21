@@ -126,7 +126,7 @@ export default function Detail(props) {
           alt="Movie poster"
         />
         <div className={trailer === true ? "youtubeTrailer" : "youtubeTrailer hiddenDetail"}>
-          <iframe height="287" src={"https://youtube.com/embed/" + video.key + "?autoplay=1"} title="trailer video"></iframe>
+          <iframe height="287" src={"https://youtube.com/embed/" + video.key} title="trailer video"></iframe>
         </div>
       </div>
       <div className="detailInfosContainer">
