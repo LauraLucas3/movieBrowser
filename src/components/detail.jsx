@@ -155,7 +155,7 @@ export default function Detail(props) {
           <div className="detailGenresGroup">
             {details.genres.map((element, i) => {
               return (
-                <Link to={`/discover/genre/` + element.name} className="detailGenre" onClick={() => setTrailer(false)}>
+                <Link to={`/discover/genre/` + element.id} className="detailGenre" onClick={() => setTrailer(false)}>
                   {element.name}
                 </Link>
               );
