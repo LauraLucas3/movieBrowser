@@ -12,6 +12,7 @@ export default function Home(props) {
   props.onChange(true, false, false);
 
   React.useEffect(() => {
+
     axios
       .get(
         "https://api.themoviedb.org/3/trending/movie/day?api_key=361afc4be8d70ed5f0b64b50759fe3d5"

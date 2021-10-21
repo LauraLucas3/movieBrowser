@@ -13,7 +13,7 @@ export default function Detail(props) {
   const settings = {
     arrows: false,
     centerMode: true,
-    centerPadding: 140,
+    centerPadding: 80,
     duration: 100,
     shift: 10,
   };
@@ -22,6 +22,7 @@ export default function Detail(props) {
   const [details, setDetails] = React.useState(null);
   const [video, setVideo] = React.useState(null);
   const [similars, setSimilars] = React.useState(null);
+  const [trailer, setTrailer] = React.useState(false);
   const months = [
     "January",
     "February",
@@ -47,6 +48,12 @@ export default function Detail(props) {
     return newDateYear;
   }
 
+  // Fonction pour afficher les trailers des pages de détail
+
+  function setTrailerOn() {
+    setTrailer(true);
+  }
+
   // URLs
 
   let detailURL =
@@ -69,7 +76,13 @@ export default function Detail(props) {
       setDetails(response.data);
     });
     axios.get(videoURL).then(function (response) {
-      setVideo(response.data.results[0]);
+      for ( let i=0; i <= response.data.results.length; i++) {
+        if (response.data.results[i].type === "Trailer") {
+          setVideo(response.data.results[i]);
+          break;
+        }
+      }
+      
     });
     axios.get(similarURL).then(function (response) {
       setSimilars(response.data.results);
@@ -96,22 +109,25 @@ export default function Detail(props) {
   return (
     <div>
       <div className="detailFrontImageContainer">
-        <button className="pathImageContainer" onClick={() => history.goBack()}>
+        <button className="pathImageContainer" onClick={() =>{setTrailer(false); history.goBack()}}>
           <img className="pathImage" src={props.pathImage} alt="path" />
         </button>
-        <div className="detailPlayButtonContainer">
+        <button className={trailer === true ? "detailPlayButtonContainer hiddenDetail" : "detailPlayButtonContainer"} onClick={setTrailerOn} display={trailer === true ? "none" : "flex"}>
           <img
-            className="detailPlayButton"
+            className={trailer === true ? "detailPlayButton hiddenDetail" : "detailPlayButton"}
             src={detailPlayButton}
             alt="play button"
           />
-        </div>
-        <div className="detailFrontGradient"></div>
+        </button>
+        <div className={trailer === true ? "detailFrontGradient hiddenDetail" : "detailFrontGradient"}></div>
         <img
-          className="detailFrontImage"
+          className={trailer === true ? "detailFrontImage hiddenDetail" : "detailFrontImage"}
           src={"https://image.tmdb.org/t/p/original" + details.backdrop_path}
           alt="Movie poster"
         />
+        <div className={trailer === true ? "youtubeTrailer" : "youtubeTrailer hiddenDetail"}>
+          <iframe height="287" src={"https://youtube.com/embed/" + video.key + "?autoplay=1"} title="trailer video"></iframe>
+        </div>
       </div>
       <div className="detailInfosContainer">
         <div className="detailTitleContainer">
@@ -139,7 +155,7 @@ export default function Detail(props) {
           <div className="detailGenresGroup">
             {details.genres.map((element, i) => {
               return (
-                <Link to={`/discover/genre/` + element.name} className="detailGenre">
+                <Link to={`/discover/genre/` + element.name} className="detailGenre" onClick={() => setTrailer(false)}>
                   {element.name}
                 </Link>
               );
@@ -157,7 +173,7 @@ export default function Detail(props) {
           {similars.map((element, i) => {
             return (
               <div className="relatedFilmSlide">
-                <Link className="relatedLink" to={`/detail/` + element.id}>
+                <Link className="relatedLink" to={`/detail/` + element.id} onClick={() => setTrailer(false)}>
                   <div className="relatedFilmImageContainer">
                   <div className="relatedGradient"></div>
                   <img
