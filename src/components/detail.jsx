@@ -23,6 +23,7 @@ export default function Detail(props) {
   const [video, setVideo] = React.useState(null);
   const [similars, setSimilars] = React.useState(null);
   const [trailer, setTrailer] = React.useState(false);
+  const [noTrailer, setNoTrailer] = React.useState(false);
   const months = [
     "January",
     "February",
@@ -76,11 +77,15 @@ export default function Detail(props) {
       setDetails(response.data);
     });
     axios.get(videoURL).then(function (response) {
-      for ( let i=0; i <= response.data.results.length; i++) {
-        if (response.data.results[i].type === "Trailer") {
-          setVideo(response.data.results[i]);
-          break;
+      if (response.data.results !== null) {
+        for ( let i=0; i <= response.data.results.length; i++) {
+          if (response.data.results[i].type === "Trailer") {
+            setVideo(response.data.results[i]);
+            break;
+          }
         }
+      } else {
+        setNoTrailer(true);
       }
       
     });
@@ -112,7 +117,7 @@ export default function Detail(props) {
         <button className="pathImageContainer" onClick={() =>{setTrailer(false); history.goBack()}}>
           <img className="pathImage" src={props.pathImage} alt="path" />
         </button>
-        <button className={trailer === true ? "detailPlayButtonContainer hiddenDetail" : "detailPlayButtonContainer"} onClick={setTrailerOn} display={trailer === true ? "none" : "flex"}>
+        <button className={trailer === true ? "detailPlayButtonContainer hiddenDetail" : "detailPlayButtonContainer"} onClick={setTrailerOn} display={noTrailer === true ? "none" : trailer === true ? "none" : "flex"}>
           <img
             className={trailer === true ? "detailPlayButton hiddenDetail" : "detailPlayButton"}
             src={detailPlayButton}
