@@ -74,10 +74,12 @@ export default function Detail(props) {
 
   React.useEffect(() => {
     axios.get(detailURL).then(function (response) {
+      console.log(response);
       setDetails(response.data);
     });
     axios.get(videoURL).then(function (response) {
-      if (response.data.results !== null) {
+      console.log(response);
+      if (response.data.results.length !== 0) {
         for ( let i=0; i <= response.data.results.length; i++) {
           if (response.data.results[i].type === "Trailer") {
             setVideo(response.data.results[i]);
@@ -96,9 +98,7 @@ export default function Detail(props) {
 
   //vérification que les données sont bien récupérées
 
-  if (!details || !video || !similars) return null;
-
-  console.log(video);
+  if (!details || !similars || ((noTrailer === false) && !video)) return null;
 
   //formattage de la date
 
@@ -117,21 +117,21 @@ export default function Detail(props) {
         <button className="pathImageContainer" onClick={() =>{setTrailer(false); history.goBack()}}>
           <img className="pathImage" src={props.pathImage} alt="path" />
         </button>
-        <button className={trailer === true ? "detailPlayButtonContainer hiddenDetail" : "detailPlayButtonContainer"} onClick={setTrailerOn} display={noTrailer === true ? "none" : trailer === true ? "none" : "flex"}>
+        <button className={noTrailer === true ? "detailPlayButtonContainer hiddenDetail" : trailer === true ? "detailPlayButtonContainer hiddenDetail" : "detailPlayButtonContainer"} onClick={setTrailerOn} display={noTrailer === true ? "none" : trailer === true ? "none" : "flex"}>
           <img
-            className={trailer === true ? "detailPlayButton hiddenDetail" : "detailPlayButton"}
+            className={noTrailer === true ? "detailPlayButton hiddenDetail" : trailer === true ? "detailPlayButton hiddenDetail" : "detailPlayButton"}
             src={detailPlayButton}
             alt="play button"
           />
         </button>
-        <div className={trailer === true ? "detailFrontGradient hiddenDetail" : "detailFrontGradient"}></div>
+        <div className={noTrailer === true ? "detailFrontGradient" : trailer === true ? "detailFrontGradient hiddenDetail" : "detailFrontGradient"}></div>
         <img
-          className={trailer === true ? "detailFrontImage hiddenDetail" : "detailFrontImage"}
+          className={noTrailer === true ? "detailFrontImage" : trailer === true ? "detailFrontImage hiddenDetail" : "detailFrontImage"}
           src={"https://image.tmdb.org/t/p/original" + details.backdrop_path}
           alt="Movie poster"
         />
-        <div className={trailer === true ? "youtubeTrailer" : "youtubeTrailer hiddenDetail"}>
-          <iframe height="287" src={"https://youtube.com/embed/" + video.key} title="trailer video"></iframe>
+        <div className={noTrailer === true ? "youtubeTrailer hiddenDetail" : trailer === true ? "youtubeTrailer" : "youtubeTrailer hiddenDetail"}>
+          <iframe height="287" src={noTrailer === true ? "#" : "https://youtube.com/embed/" + video.key} title="trailer video"></iframe>
         </div>
       </div>
       <div className="detailInfosContainer">
@@ -160,7 +160,7 @@ export default function Detail(props) {
           <div className="detailGenresGroup">
             {details.genres.map((element, i) => {
               return (
-                <Link to={`/discover/genre/` + element.id} className="detailGenre" onClick={() => setTrailer(false)}>
+                <Link to={`/discover/genre/` + element.id} className="detailGenre" onClick={() => {setTrailer(false); setNoTrailer(false)}}>
                   {element.name}
                 </Link>
               );
@@ -178,7 +178,7 @@ export default function Detail(props) {
           {similars.map((element, i) => {
             return (
               <div className="relatedFilmSlide">
-                <Link className="relatedLink" to={`/detail/` + element.id} onClick={() => setTrailer(false)}>
+                <Link className="relatedLink" to={`/detail/` + element.id} onClick={() => {setTrailer(false); setNoTrailer(false)}}>
                   <div className="relatedFilmImageContainer">
                   <div className="relatedGradient"></div>
                   <img
