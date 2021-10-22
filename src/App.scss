@@ -1,24 +1,45 @@
-//Font import
+// Font import
 
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
-//Colors
+// Colors
 
-$clearcolor: #e2e2e2;
+$clear-color: #e2e2e2;
+$clear-color-2: #e0e0e0;
+
 $trans-gray-color: rgba(255, 255, 255, 0.25);
-$light-gray-1: #bcbcbc;
-$dark-color: #15141f;
-$peach-gradient: linear-gradient(244.07deg, #ff8f71 47.24%, #ef2d1a 120.34%);
+$trans-gray-color-2: rgba(218, 218, 218, 0.3);
+$trans-gray-color-3: rgba(255, 255, 255, 0.05);
+$trans-gray-color-4: rgba(250, 240, 202, 0.05);
+$trans-gray-color-5: rgba(187, 187, 187, 0.5);
 
-//font
+$light-gray-1: #bcbcbc;
+$light-gray-2: #515151;
+
+$dark-color: #15141f;
+$dark-color-2: #211f30;
+
+$peach-color: #ff8f71;
+
+$peach-gradient: linear-gradient(244.07deg, #ff8f71 47.24%, #ef2d1a 120.34%);
+$black-gradient: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+$black-gradient-2: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 42.1%, rgba(0, 0, 0, 0.7) 100%);
+
+// Blur
+
+$blur: blur(4.81px);
+
+// Font
 
 $font: "Lato", sans-serif;
+$font-weight-1: 400;
+$font-weight-2: 500;
 
-//App
+// App
 
 body {
   background-color: $dark-color;
-  color: $clearcolor;
+  color: $clear-color;
   font-family: $font;
   padding-bottom: 100px;
 }
@@ -26,11 +47,13 @@ body {
 Link {
   font-family: $font;
   text-decoration: none;
-  color: $clearcolor;
+  color: $clear-color;
 }
 
+// Menu
+
 .menuLinks {
-    background-color: $dark-color;
+  background-color: $dark-color;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -45,23 +68,22 @@ Link {
   padding-top: 16px;
   padding-bottom: 16px;
   margin-bottom: 0px;
-
   z-index: 5;
-}
 
-.homeLogo {
-  width: 24px;
-  height: 26px;
-}
+  .homeLogo {
+    width: 24px;
+    height: 26px;
+  }
 
-.discoverLogo {
-  width: 26px;
-  height: 26px;
-}
+  .discoverLogo {
+    width: 26px;
+    height: 26px;
+  }
 
-.profilLogo {
-  width: 22px;
-  height: 26px;
+  .profilLogo {
+    width: 22px;
+    height: 26px;
+  }
 }
 
 //Discover
@@ -77,45 +99,45 @@ Link {
   white-space: nowrap;
   padding-left: 24px;
   padding-right: 24px;
-}
 
-.discLink {
-  font-family: $font;
-  text-decoration: none;
-  color: $clearcolor;
-  font-weight: 400;
-  font-size: 16px;
-  margin-right: 20px;
-  &:focus {
+  .discLink {
+    font-family: $font;
+    text-decoration: none;
+    color: $clear-color;
+    font-weight: $font-weight-1;
+    font-size: 16px;
+    margin-right: 20px;
+    &:focus {
+      background: $peach-gradient;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .genreFocus {
+    display: table;
+    padding-bottom: 8px;
     background: $peach-gradient;
     background-clip: text;
     color: transparent;
+    &:after {
+      border-bottom-style: solid;
+      border-bottom-width: 3px;
+      border-bottom-color: $peach-color;
+      padding-bottom: 8px;
+      content: "";
+      display: block;
+      width: 35%;
+    }
   }
 }
 
-.genreFocus {
-  display: table;
-  padding-bottom: 8px;
-  background: $peach-gradient;
-  background-clip: text;
-  color: transparent;
-  &:after {
-    border-bottom-style: solid;
-    border-bottom-width: 3px;
-    border-bottom-color: #ff8f71;
-    padding-bottom: 8px;
-    content: "";
-    display: block;
-    width: 35%;
-  }
-}
-
-//titre
+// Titre
 
 h1 {
   color: white;
   font-family: $font;
-  font-weight: 400;
+  font-weight: $font-weight-1;
   font-size: 24px;
   line-height: 29px;
   margin-left: 29px;
@@ -128,7 +150,7 @@ h1 {
   }
 }
 
-//home
+// Home
 
 .trendImageContainer {
   position: relative;
@@ -138,6 +160,62 @@ h1 {
   margin: 0 24px;
   margin-top: 8px;
   height: 191px;
+
+  .screenTrendLegend {
+    height: 62px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    background-color: $trans-gray-color-2;
+    backdrop-filter: $blur;
+    -webkit-backdrop-filter: $blur;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: outset;
+    border-color: $trans-gray-color;
+    position: absolute;
+    bottom: 8px;
+    left: 12px;
+
+    .screenTrendPlay {
+      width: auto;
+      height: 28px;
+      margin-top: 17px;
+      margin-bottom: 17px;
+      margin-left: 20px;
+      margin-right: 24px;
+    }
+
+    .screenTrendText {
+      margin: auto 0;
+      margin-right: 12px;
+
+      .screenTrendSpotlight {
+        font-family: $font;
+        font-weight: $font-weight-1;
+        font-size: 12px;
+        line-height: 14px;
+        padding: 0;
+        margin: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        color: $light-gray-1;
+      }
+
+      .screenTrendTitle {
+        font-family: $font;
+        font-weight: $font-weight-1;
+        font-size: 16px;
+        line-height: 19px;
+        margin: 0;
+        padding: 0;
+        padding-top: 0;
+        margin-top: 4px;
+        color: white;
+      }
+    }
+  }
+
   .trendImage {
     width: 100%;
     height: 100%;
@@ -146,64 +224,7 @@ h1 {
   }
 }
 
-.screenTrendLegend {
-  height: 62px;
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  background-color: rgba(218, 218, 218, 0.3);
-  backdrop-filter: blur(4.81px);
-  -webkit-backdrop-filter: blur(4.81px);
-  border-radius: 20px;
-  border-width: 1px;
-  border-style: outset;
-  border-color: $trans-gray-color;
-  position: absolute;
-  bottom: 8px;
-  left: 12px;
-}
-
-.screenTrendPlay {
-  width: auto;
-  height: 28px;
-  margin-top: 17px;
-  margin-bottom: 17px;
-  margin-left: 20px;
-  margin-right: 24px;
-}
-
-.screenTrendText {
-  margin: auto 0;
-  margin-right: 12px;
-}
-
-.screenTrendSpotlight {
-  font-family: $font;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.02em;
-  padding: 0;
-  margin: 0;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  color: $light-gray-1;
-}
-
-.screenTrendTitle {
-  font-family: $font;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  letter-spacing: 0.02em;
-  margin: 0;
-  padding: 0;
-  padding-top: 0;
-  margin-top: 4px;
-  color: white;
-}
-
-//detail
+// Detail
 
 .detailFrontImageContainer {
   position: relative;
@@ -213,11 +234,53 @@ h1 {
   margin: 0 0;
   height: 287px;
   margin-bottom: 24px;
-  .detailFrontImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+  .pathImageContainer {
+    position: absolute;
+    top: 52px;
+    left: 37px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    z-index: 2;
+
+    .pathImage {
+      height: 28px;
+      width: 16px;
+      cursor: pointer;
+    }
   }
+
+  .detailPlayButtonContainer {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    top: 50%;
+    left: 50%;
+    margin-left: -32px;
+    margin-top: -32px;
+    background: linear-gradient(
+      141.08deg,
+      rgba(255, 255, 255, 0.25) 13.56%,
+      rgba(255, 255, 255, 0) 85.76%
+    );
+    backdrop-filter: $blur;
+    border-radius: 32px;
+    border-width: 1px;
+    border-style: outset;
+    border-color: $trans-gray-color;
+    cursor: pointer;
+    z-index: 2;
+
+    .detailPlayButton {
+      height: 25.5px;
+      width: 22.5px;
+      margin: auto;
+      filter: drop-shadow(5px 5px 10px rgba(254, 86, 70, 0.15));
+      -webkit-filter: drop-shadow(5px 5px 10px rgba(254, 86, 70, 0.15));
+    }
+  }
+
   .detailFrontGradient {
     position: absolute;
     top: 0;
@@ -232,297 +295,281 @@ h1 {
       rgba(0, 0, 0, 0.8) 100%
     );
   }
-  .detailPlayButton {
-    height: 25.5px;
-    width: 22.5px;
-    margin: auto;
-    filter: drop-shadow(5px 5px 10px rgba(254, 86, 70, 0.15));
-    -webkit-filter: drop-shadow(5px 5px 10px rgba(254, 86, 70, 0.15));
-  }
-  .detailPlayButtonContainer {
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    top: 50%;
-    left: 50%;
-    margin-left: -32px;
-    margin-top: -32px;
-    background: linear-gradient(
-      141.08deg,
-      rgba(255, 255, 255, 0.25) 13.56%,
-      rgba(255, 255, 255, 0) 85.76%
-    );
-    backdrop-filter: blur(4.81px);
-    border-radius: 32px;
-    border-width: 1px;
-    border-style: outset;
-    border-color: $trans-gray-color;
-    cursor: pointer;
-    z-index: 2;
-  }
-  .pathImageContainer {
-    position: absolute;
-    top: 52px;
-    left: 37px;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    z-index: 2;
-  }
-  .pathImage {
-    height: 28px;
-    width: 16px;
-    cursor: pointer;
-  }
-}
 
-.youtubeTrailer {
-  width: 100%;
-  iframe {
+  .detailFrontImage {
     width: 100%;
-    border: none;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .youtubeTrailer {
+    width: 100%;
+    iframe {
+      width: 100%;
+      border: none;
+    }
+  }
+
+  .hiddenDetail {
+    display: none;
   }
 }
 
 .detailInfosContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 24px;
+
+  .detailTitleContainer {
     display: flex;
-    flex-direction: column;
-    margin-left: 24px;
-    .detailTitleContainer {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-bottom: 10px;
-        .detailTitle {
-            font: {
-                weight: 500;
-                size: 24px;
-            }
-            line-height: 29px;
-            letter-spacing: 0.02em;
-            color: white;
-            margin: 0;
-            margin-right: 8px;
-        }
-        .detailRes {
-            padding: 4px 8px;
-            margin: 0;
-            font: {
-                weight: 400;
-                size: 12px;
-            }
-            letter-spacing: 0.02em;
-            color: #E0E0E0;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(4.81px);
-            -webkit-backdrop-filter: blur(4.81px);
-            border: {
-                style: outset;
-                color: $trans-gray-color;
-                width: 1px;
-                radius: 5px;
-            }
-        }
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+
+    .detailTitle {
+      font: {
+        weight: $font-weight-2;
+        size: 24px;
+      }
+      line-height: 29px;
+      color: white;
+      margin: 0;
+      margin-right: 8px;
     }
-    .detailAddInfosContainer {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin: 0;
-        margin-right: 24px;
-        padding-bottom: 18px;
-        border-bottom: 0.2px solid #515151;
-        .detailDurationImage {
-            margin-right: 6px;
-            width: 12px;
-            height: 12px;
-        }
-        .detailDuration {
-            margin: 0;
-            font: {
-                size: 12px;
-                weight: 400;
-            }
-            color: $light-gray-1;
-            margin-right: 18px;
-        }
-        .detailRateImage {
-            height: 12px;
-            width: 12px;
-            margin-right: 6px;
-        }
-        .detailRate {
-            margin: 0;
-            font: {
-                size: 12px;
-                weight: 400;
-            }
-            color: $light-gray-1;
-        }
+
+    .detailRes {
+      padding: 4px 8px;
+      margin: 0;
+      font: {
+        weight: $font-weight-1;
+        size: 12px;
+      }
+      color: $clear-color-2;
+      background: $trans-gray-color-3;
+      backdrop-filter: $blur;
+      -webkit-backdrop-filter: $blur;
+      border: {
+        style: outset;
+        color: $trans-gray-color;
+        width: 1px;
+        radius: 5px;
+      }
     }
+  }
+  .detailAddInfosContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    margin-right: 24px;
+    padding-bottom: 18px;
+    border-bottom: 0.2px solid $light-gray-2;
+
+    .detailDurationImage {
+      margin-right: 6px;
+      width: 12px;
+      height: 12px;
+    }
+
+    .detailDuration {
+      margin: 0;
+      font: {
+        size: 12px;
+        weight: $font-weight-1;
+      }
+      color: $light-gray-1;
+      margin-right: 18px;
+    }
+
+    .detailRateImage {
+      height: 12px;
+      width: 12px;
+      margin-right: 6px;
+    }
+
+    .detailRate {
+      margin: 0;
+      font: {
+        size: 12px;
+        weight: $font-weight-1;
+      }
+      color: $light-gray-1;
+    }
+  }
 }
 
 .detailInfosTwoContainer {
-    display: flex;
-    flex-direction: row;
-    margin-top: 16px;
-    margin-left: 24px;
-    margin-right: 24px;
-    padding-bottom: 16px;
-    border-bottom: 0.2px solid #515151;
-    p {
-        margin: 0;
+  display: flex;
+  flex-direction: row;
+  margin-top: 16px;
+  margin-left: 24px;
+  margin-right: 24px;
+  padding-bottom: 16px;
+  border-bottom: 0.2px solid $light-gray-2;
+
+  p {
+    margin: 0;
+  }
+
+  .detailReleaseContainer {
+    margin: 0;
+    margin-right: 47px;
+
+    .detailReleaseTitle {
+      font: {
+        size: 16px;
+        weight: $font-weight-2;
+      }
+      color: white;
+      margin-bottom: 12px;
     }
-    .detailReleaseContainer {
-        margin: 0;
-        margin-right: 47px;
-        .detailReleaseTitle {
-            font: {
-                size: 16px;
-                weight: 500px;
-            }
-            color: white;
-            margin-bottom: 12px;
-        }
-        .detailReleaseDate {
-            font: {
-                size: 12px;
-                weight: 400;
-            }
-            color: $light-gray-1
-        }
+
+    .detailReleaseDate {
+      font: {
+        size: 12px;
+        weight: $font-weight-1;
+      }
+      color: $light-gray-1;
     }
-    .detailGenresContainer {
-        .detailGenresTitle {
-            font: {
-                size: 16px;
-                weight: 500;
-            }
-            color: white;
-            margin-bottom: 8px;
-        }
-        .detailGenresGroup {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            .detailGenre {
-                font: {
-                    size: 12px;
-                    weight: 400;
-                }
-                color: $light-gray-1;
-                padding: 4px 12px;
-                margin: 3px 0;
-                background-color: rgba(250, 240, 202, 0.05);
-                backdrop-filter: blur(4.81px);
-                border-radius: 15px;
-                margin-right: 12px;
-                border: {
-                    style: outset;
-                    color: $trans-gray-color;
-                    width: 1px;
-                }
-                text-decoration: none;
-            }
-        }
+  }
+
+  .detailGenresContainer {
+    .detailGenresTitle {
+      font: {
+        size: 16px;
+        weight: $font-weight-2;
+      }
+      color: white;
+      margin-bottom: 8px;
     }
+
+    .detailGenresGroup {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .detailGenre {
+        font: {
+          size: 12px;
+          weight: $font-weight-1;
+        }
+        color: $light-gray-1;
+        padding: 4px 12px;
+        margin: 3px 0;
+        background-color: $trans-gray-color-4;
+        backdrop-filter: $blur;
+        border-radius: 15px;
+        margin-right: 12px;
+        border: {
+          style: outset;
+          color: $trans-gray-color;
+          width: 1px;
+        }
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .detailSynopsisContainer {
-    margin-top: 16px;
-    margin-left: 24px;
-    margin-right: 24px;
-    margin-bottom: 20px;
-    p {
-        margin: 0;
+  margin-top: 16px;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 20px;
+  p {
+    margin: 0;
+  }
+
+  .detailSynopsisTitle {
+    font: {
+      size: 16px;
+      weight: $font-weight-2;
     }
-    .detailSynopsisTitle {
-        font: {
-            size: 16px;
-            weight: 500;
-        }
-        color: white;
-        margin-bottom: 12px;
+    color: white;
+    margin-bottom: 12px;
+  }
+
+  .detailSynopsis {
+    font: {
+      size: 14px;
+      weight: $font-weight-1;
     }
-    .detailSynopsis {
-        font: {
-            size: 14px;
-            weight: 400;
-        }
-        color: $light-gray-1;
-    }
+    color: $light-gray-1;
+  }
 }
 
 .detailRelatedMoviesContainer {
-    height: 106px;
-    margin-bottom: 30px;
-    p {
-        margin: 0;
-    }
-    .detailRelatedMoviesTitle {
-      margin-left: 24px;
-        font: {
-            size: 16px;
-            weight: 500;
-        }
-        color: white;
-        margin-bottom: 16px;
-    }
+  height: 106px;
+  margin-bottom: 30px;
 
-    .relatedFilmSlide {
+  p {
+    margin: 0;
+  }
+
+  .detailRelatedMoviesTitle {
+    margin-left: 24px;
+    font: {
+      size: 16px;
+      weight: $font-weight-2;
+    }
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .relatedFilmSlide {
+    position: relative;
+
+    .relatedLink {
       position: relative;
-      .relatedLink {
+      display: flex;
+      flex-direction: column;
+      color: white;
+      text-decoration: none;
+      padding: 0 10px;
+
+      p {
+        margin: 0;
+        font: {
+          size: 12px;
+          weight: $font-weight-1;
+        }
+
+        span {
+          font-weight: 500;
+          color: $light-gray-1;
+        }
+      }
+
+      .relatedFilmImageContainer {
         position: relative;
         display: flex;
-        flex-direction: column;
-        color: white;
-        text-decoration: none;
-        padding: 0 10px;
-        p {
-          margin: 0;
-          font: {
-            size: 12px;
-            weight: 400;
-          }
-          span {
-            font-weight: 500;
-            color: $light-gray-1;
-          }
-        }
+        height: 106px;
+        width: 100%;
 
-        .relatedFilmImageContainer {
-          position: relative;
-          display: flex;
+        .relatedGradient {
+          position: absolute;
+          top: 0;
           height: 106px;
           width: 100%;
+          object-fit: cover;
+          background: $black-gradient;
+          border-radius: 20px;
+          z-index: 3;
+        }
+
+        .relatedFilm {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 20px;
+          margin-bottom: 12px;
         }
       }
-      .relatedFilm {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        border-radius: 20px;
-        margin-bottom: 12px;
-      }
     }
+  }
 }
 
-.relatedGradient {
-  position: absolute;
-  top: 0;
-  height: 106px;
-  width: 100%;
-  object-fit: cover;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-  border-radius: 20px;
-  z-index: 3;
-}
-
-.hiddenDetail {
-  display: none;
-}
-
-//home slider
+// Home slider
 
 .trendingTitle {
   margin-top: 31px;
@@ -530,7 +577,7 @@ h1 {
   margin-bottom: 24px;
   font: {
     size: 24px;
-    weight: 400;
+    weight: $font-weight-1;
   }
   color: white;
 }
@@ -546,111 +593,113 @@ h1 {
   justify-items: center;
   text-align: center;
 
-  .otherTrendsImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 30px;
-
   .otherTrendsLink {
     position: relative;
 
-  }
-  }
-}
+    .otherTrendsRate {
+      position: absolute;
+      text-align: left;
+      width: 77px;
+      height: 49px;
+      top: 17px;
+      right: 16px;
+      display: flex;
+      flex-direction: column;
+      background-color: $trans-gray-color;
+      backdrop-filter: $blur;
+      -webkit-backdrop-filter: $blur;
+      border-radius: 15px;
+      border-width: 1px;
+      border-style: outset;
+      border-color: $trans-gray-color;
+      cursor: pointer;
+      z-index: 2;
+      color: white;
 
-.trendsTitleContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-self: center;
-  position: absolute;
-  width: 90%;
-  margin-left: 5%;
-  height: 82px;
-  bottom: 21px;
-  background-color: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(4.81px);
-  -webkit-backdrop-filter: blur(4.81px);
-    border-radius: 20px;
-    border-width: 1px;
-    border-style: outset;
-    border-color: $trans-gray-color;
-    cursor: pointer;
-    z-index: 2;
-}
+      p {
+        margin: 0;
+      }
 
-.trendsTitle {
-  margin: 0;
-  text-decoration: none;
-  font: {
-    weight: 400;
-    size: 16px;
-  }
-  color: white;
-}
+      .trendsIMDb {
+        font: {
+          size: 8px;
+          weight: $font-weight-1;
+        }
+        padding-top: 6px;
+        padding-left: 12px;
+        padding-bottom: 3px;
+      }
 
-.trendsIMDb {
-    font: {
-        size: 8px;
-        weight: 400;
-    }
-    padding-top: 6px;
-    padding-left: 12px;
-    padding-bottom: 3px;
-  }
+      .otherTrendsRateStarContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
-.otherTrendsRate {
-  position: absolute;
-  text-align: left;
-  width: 77px;
-  height: 49px;
-  top: 17px;
-  right: 16px;
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(4.81px);
-  -webkit-backdrop-filter: blur(4.81px);
-  border-radius: 15px;
-  border-width: 1px;
-  border-style: outset;
-  border-color: $trans-gray-color;
-  cursor: pointer;
-  z-index: 2;
-  color: white;
-  
-  p {
-    margin: 0;
-  }
-  .otherTrendsRateStarContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    .trendsStarRate {
-      width: 16px;
-      height: 16px;
-      margin-right: 9px;
-      padding-left: 12px;
-    }
-    .trendsRateNumber {
-      font: {
-        size: 16px;
-        weight: 400;
+        .trendsStarRate {
+          width: 16px;
+          height: 16px;
+          margin-right: 9px;
+          padding-left: 12px;
+        }
+
+        .trendsRateNumber {
+          font: {
+            size: 16px;
+            weight: $font-weight-1;
+          }
+        }
       }
     }
-  }
-}
 
-.otherTrendsGradient {
-  position: absolute;
-  top: 0;
-  height: 359px;
-  width: 100%;
-  object-fit: cover;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 42.1%, rgba(0, 0, 0, 0.7) 100%);
-  border-radius: 30px;
-  z-index: 1;
+    .trendsTitleContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: center;
+      position: absolute;
+      width: 90%;
+      margin-left: 5%;
+      height: 82px;
+      bottom: 21px;
+      background-color: $trans-gray-color;
+      backdrop-filter: $blur;
+      -webkit-backdrop-filter: $blur;
+      border-radius: 20px;
+      border-width: 1px;
+      border-style: outset;
+      border-color: $trans-gray-color;
+      cursor: pointer;
+      z-index: 2;
+
+      .trendsTitle {
+        margin: 0;
+        text-decoration: none;
+        font: {
+          weight: $font-weight-1;
+          size: 16px;
+        }
+        color: white;
+      }
+    }
+
+    .otherTrendsGradient {
+      position: absolute;
+      top: 0;
+      height: 359px;
+      width: 100%;
+      object-fit: cover;
+      background: $black-gradient-2;
+      border-radius: 30px;
+      z-index: 1;
+    }
+
+    .otherTrendsImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 30px;
+    }
+  }
 }
 
 //Search and Genres
@@ -660,6 +709,7 @@ h1 {
   width: 100%;
   display: flex;
   flex-direction: column;
+
   .searchStyleContainer {
     min-height: 800px;
     width: 100%;
@@ -677,54 +727,57 @@ h1 {
   display: flex;
   margin-top: 20px;
   padding: 0 10px;
-  .searchFilmImageContainer{
-    position: relative;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    width: 100%;
-    height: auto;
-    flex-shrink: 0;
-  }
-  .searchFilm {
-    display: flex;
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-  }
 
   .searchLink {
     text-decoration: none;
-  }
 
-  .searchFilmTitle {
-    margin: 0;
-    margin-top: 12px;
-    color: white;
-    text-decoration: none;
-    padding: 0;
-    font: {
-      size: 16px;
-      weight: 400;
+    .searchFilmImageContainer {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      width: 100%;
+      height: auto;
+      flex-shrink: 0;
+
+      .searchGradient {
+        position: absolute;
+        display: flex;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        background: $black-gradient;
+        border-radius: 20px;
+        z-index: 3;
+      }
+
+      .searchFilm {
+        display: flex;
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+      }
     }
-    span {
+
+    .searchFilmTitle {
+      margin: 0;
+      margin-top: 12px;
+      color: white;
       text-decoration: none;
-      font-weight: 500;
-      color: $light-gray-1;
+      padding: 0;
+      font: {
+        size: 16px;
+        weight: $font-weight-1;
+      }
+
+      span {
+        text-decoration: none;
+        font-weight: $font-weight-2;
+        color: $light-gray-1;
+      }
     }
   }
-}
-
-.searchGradient {
-  position: absolute;
-  display: flex;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
-  border-radius: 20px;
-  z-index: 3;
 }
 
 //Search Bar
@@ -734,25 +787,27 @@ h1 {
   align-items: center;
   margin: 0 24px;
   margin-bottom: 23px;
-  background-color: #211F30;
+  background-color: $dark-color-2;
   padding: 12px;
   border-radius: 20px;
+
   img {
     margin-right: 16px;
   }
+
   input {
     width: 100%;
-    background-color: #211F30;
+    background-color: $dark-color-2;
     border: none;
     font: {
       size: 14px;
       family: $font;
-      weight: 500;
+      weight: $font-weight-2;
     }
-    color: rgba(187, 187, 187, 0.5);
+    color: $trans-gray-color-5;
+
     &:focus {
       outline: none;
     }
   }
-  
 }

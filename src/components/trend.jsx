@@ -1,11 +1,18 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+// Import de react et du package pour le carrousel
+
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import Detail from "./detail";
 import Slider from "infinite-react-carousel";
 
+// Import du composent détail
+
+import Detail from "./detail";
+
 export default function Trend(props) {
+  // Variables
+
   const settings = {
+    // Paramètres du carrousel
     arrows: false,
     centerMode: true,
     centerPadding: 70,
@@ -13,11 +20,15 @@ export default function Trend(props) {
     shift: 30,
   };
 
+  // Affichage
+
   return (
     <div>
       <h2 className="trendingTitle">Trending</h2>
       <Slider {...settings}>
+        {/*On applique les paramètres au carrousel*/}
         {
+          // On fait un .map pour appliquer cet affichage à chaque trend de l'array
           // eslint-disable-next-line array-callback-return
           props.trends.map((element, i) => {
             if (element.id !== props.screenTrend.id)
@@ -58,6 +69,8 @@ export default function Trend(props) {
           })
         }
       </Slider>
+
+      {/*Router vers les pages de détail*/}
 
       <Switch>
         <Route path={`/detail/:movieId`}>

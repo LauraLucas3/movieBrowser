@@ -31,14 +31,13 @@ import trendStar from "./img/trendStar.png";
 import discSearch from "./img/discSearch.png";
 
 export default function App() {
-
-  // Variables 
+  // Variables
 
   const [isHome, setIsHome] = React.useState(false);
   const [isDisc, setIsDisc] = React.useState(false);
   const [isProfil, setIsProfil] = React.useState(false);
-  const [search, setSearch] = React.useState("");
-  const [encodedSearch, setEncodedSearch] = React.useState("");
+  const [search, setSearch] = React.useState(""); // Variable qui récupère ce que l'utilisateur tape dans la barre de recherche
+  const [encodedSearch, setEncodedSearch] = React.useState(""); // Transforme la variable pour pour pouvoir l'utiliser quand la requête axios de la page search
 
   // Fonction pour transformer la valeur de la barre de recherche en URI pour la requête axios
 
